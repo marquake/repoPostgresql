@@ -1,0 +1,15 @@
+  version: '3.8'
+  services:
+    spring_app:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      ports:
+        - "8080:8080"
+      depends_on:
+        - h2_database
+
+    h2_database:
+      image: "openjdk:11-jre-slim"
+      ports:
+        - "1521:1521"

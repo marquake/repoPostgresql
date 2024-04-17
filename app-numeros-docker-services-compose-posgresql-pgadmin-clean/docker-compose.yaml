@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+
+  posgresql:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - DATABASE_HOST=127.0.0.1
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+#  pgadmin:
+#    image: dpage/pgadmin4
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+#      PGADMIN_DEFAULT_PASSWORD: "admin"
+#    ports:
+#      - "80:80"
+#    depends_on:
+#      - posgresql
+
+  mi-servicio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - posgresql
+#    networks:
+#      - dock-db-test
+
+#networks:
+#  dock-db-test:
+#    external: false
+#    name: dock-db-test

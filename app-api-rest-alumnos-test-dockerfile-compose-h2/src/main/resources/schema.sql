@@ -1,0 +1,8 @@
+
+DROP TABLE IF EXISTS ALUMNO;
+
+CREATE TABLE ALUMNO (
+    ID int AUTO_INCREMENT PRIMARY KEY,
+    name varchar(30) NOT NULL,
+    ap1 varchar(30)
+);

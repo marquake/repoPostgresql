@@ -1,0 +1,9 @@
+
+--CREATE DATABASE databasenumeros;
+
+CREATE TABLE IF NOT EXISTS TABLA_NUMEROS (
+    id SERIAL PRIMARY KEY,
+    numero INTEGER
+);
+
+INSERT INTO TABLA_NUMEROS (numero) VALUES (1), (15), (5), (7), (3);
